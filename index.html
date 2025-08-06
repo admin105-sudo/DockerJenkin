@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abinaya Pandiyarajan Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1e3a8a, #2563eb);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+      animation: slideInTop 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      width: 24ch;
+      animation: typing 3s steps(24), blink 0.5s step-end infinite alternate;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      animation: fadeIn 10s ease-in;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills-list li {
+      background: #1e293b;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(96, 165, 250, 0.2);
+      background: #334155;
+    }
+
+    .image-section {
+      text-align: center;
+      margin-top: 40px;
+      animation: zoomIn 100s ease-out;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50px;
+      border: 2px solid #1c70e7;
+      box-shadow: 0 8px 20px rgba(41, 207, 74, 0.4);
+      transform: scale(0.95);
+      transition: transform 0.5s ease;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.02);
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 15px 20px 0;
+      text-decoration: none;
+      color: #93c5fd;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-links a::before {
+      content: "✨";
+      position: absolute;
+      left: -25px;
+      animation: floatIcon 2s infinite ease-in-out;
+    }
+
+    .contact-links a:hover {
+      color: #60a5fa;
+      transform: translateY(-4px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+      padding: 20px;
+      background-color: #1e293b;
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* Animations */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 65ch }
+    }
+
+    @keyframes blink {
+      from { border-color: transparent }
+      to { border-color: white }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideInTop {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes floatIcon {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.1rem;
+        width: 20ch;
+        animation: typing 5s steps(18), blink 0.5s step-end infinite alternate;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <center>
+    <h1>Abinaya Pandiyarajan</h1>
+    <p>Aspiring AWS & DevOps Engineer</p>
+    </center>
+  </header>
+
+  <section>
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>AWS</li>
+      <li>DevOps</li>
+      <li>Postman</li>
+      <li>Jenkins</li>
+      <li>Docker</li>
+      <li>Kubernetes</li>
+      <li>Git</li>
+      <li>Terraform</li>
+      <li>Ansible</li>
+      <li>Linux</li>
+      <li>Bash</li>
+      <li>Python</li>
+      <li>CI/CD</li>
+      <li>CloudFormation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I’m an aspiring AWS & DevOps Engineer with a strong foundation in cloud computing, Linux, scripting, and automation tools like Git, Jenkins, Docker, and Kubernetes.
+      I’ve completed hands-on projects and labs using AWS services such as EC2, S3, IAM, and CloudFormation.
+    </p>
+    <p>
+      I hold certifications in AWS Cloud Practitioner and AWS Solutions Architect Associate. My passion lies in automating workflows, optimizing infrastructure, and ensuring smooth deployment cycles.
+    </p>
+    <p>
+      🎯 Looking for opportunities where I can contribute, grow, and keep learning in cloud and DevOps domains.
+    </p>
+  </section>
+
+  <section class="image-section">
+    <h2>Cloud & DevOps</h2>
+    <img src="aws devops.png" alt="Cloud & DevOps Image">
+  </section>
+
+<section>
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="mailto:abiofficial1805@gmail.com" target="_blank" rel="noopener noreferrer">📧 Email</a>
+    <a href="https://github.com/admin105-sudo" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+    <a href="https://www.linkedin.com/in/abinaya-pandiyarajan-7a98a0277" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Abinaya Pandiyarajan. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
