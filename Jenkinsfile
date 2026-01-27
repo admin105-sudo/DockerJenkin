@@ -6,16 +6,15 @@ pipeline {
     }
 
     environment {
-        EC2_IP = "98.82.17.19"
+        EC2_IP = "44.198.56.239"
         IMAGE = "dockerhubusername/myapp:latest"
     }
 
     stages {
 
-        stage('Clone Repo') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/admin105-sudo/DockerJenkin.git'
+                checkout scm
             }
         }
 
@@ -25,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
+        stage('Push Image to DockerHub') {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
