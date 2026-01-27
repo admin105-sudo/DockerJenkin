@@ -14,7 +14,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/admin105-sudo/web-api-ai-docker-.git'
+                    url: 'https://github.com/admin105-sudo/DockerJenkin.git'
             }
         }
 
