@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sshagent(['ec2-key']) {
                     sh """
-                    ssh -o StrictHostKeyChecking=no ec2-user@${EC2_IP} '
+                    ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} '
                     docker stop myapp || true
                     docker rm myapp || true
                     docker run -d -p 80:80 --name myapp myapp:latest
