@@ -1,11 +1,10 @@
-# Use nginx image
 FROM nginx:alpine
 
-# Remove default nginx content
+# Default nginx html remove pannum
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy our html file
+# Namma website files copy pannum
 COPY index.html /usr/share/nginx/html/
 
-# Expose port
-EXPOSE 80
+# Container start aagumbodhu nginx run aagum
+CMD ["nginx", "-g", "daemon off;"]
