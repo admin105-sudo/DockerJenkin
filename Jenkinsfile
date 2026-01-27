@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         GITHUB_REPO = 'git@github.com:admin105-sudo/DockerJenkin.git'
+        GITHUB_CREDS = credentials('github-creds')
         EC2_IP = '98.86.171.127'
     }
 
