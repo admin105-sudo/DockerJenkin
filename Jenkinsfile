@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        EC2_IP = "44.198.56.239"
+        EC2_IP = "98.82.17.19"
         IMAGE = "dockerhubusername/myapp:latest"
     }
 
