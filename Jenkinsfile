@@ -12,7 +12,8 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git credentialsId: 'github-ssh-key',
-                    url: "${GITHUB_REPO}"
+                    url: "${GITHUB_REPO}",
+                    credentialsId: 'github-creds'
             }
         }
 
