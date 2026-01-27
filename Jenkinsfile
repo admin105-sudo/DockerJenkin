@@ -6,8 +6,7 @@ pipeline {
     }
 
     environment {
-        EC2_IP = "98.82.17.19"
-        IMAGE = "dockerhubusername/myapp:latest"
+        EC2_IP = "44.198.56.239"
     }
 
     stages {
@@ -18,36 +17,20 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t $IMAGE .'
-            }
-        }
-
-        stage('Push Image to DockerHub') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh '''
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker push $IMAGE
-                    '''
-                }
-            }
-        }
-
         stage('Deploy to EC2') {
             steps {
                 sshagent(['ec2-ssh-key']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} '
-                    docker pull $IMAGE
+                    if [ ! -d app ]; then
+                        git clone https://github.com/admin105-sudo/DockerJenkin.git app
+                    fi
+                    cd app
+                    git pull
                     docker stop myapp || true
                     docker rm myapp || true
-                    docker run -d -p 80:80 --name myapp $IMAGE
+                    docker build -t myapp .
+                    docker run -d -p 80:80 --name myapp myapp
                     '
                     """
                 }
