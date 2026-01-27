@@ -13,7 +13,6 @@ pipeline {
             steps {
                 git credentialsId: 'github-ssh-key',
                     url: "${GITHUB_REPO}",
-                    credentialsId: 'github-creds'
             }
         }
 
