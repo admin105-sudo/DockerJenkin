@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        EC2_IP = "44.198.56.239"
+        EC2_IP = "98.86.171.127"
     }
 
     stages {
