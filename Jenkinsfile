@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GITHUB_REPO = 'git@github.com:admin105-sudo/DockerJenkin.git'
-        EC2_IP = '98.86.171.127' 
+        EC2_IP = '44.199.210.253' 
     }
 
     stages {
