@@ -2,16 +2,14 @@ pipeline {
     agent any
 
     environment {
-        GITHUB_REPO = 'git@github.com:admin105-sudo/DockerJenkin.git'
-        EC2_IP = '44.199.210.253' 
+        EC2_IP = '44.199.210.253'
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git credentialsId: 'github-ssh-key',
-                    url: "${GITHUB_REPO}"
+                checkout scm
             }
         }
 
@@ -21,7 +19,7 @@ pipeline {
                     sh """
                     ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} '
                       if [ ! -d app ]; then
-                        git clone ${GITHUB_REPO} app
+                        git clone https://github.com/admin105-sudo/DockerJenkin.git app
                       fi
                       cd app
                       git pull
